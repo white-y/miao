@@ -9,6 +9,43 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
+        body {
+            margin: 0;
+        }
+
+        header {
+            background-color: black;
+        }
+
+        .p1 {
+            display: block;
+            margin: auto;
+            width: 600px;
+            background-color: black;
+            color: white;
+        }
+
+        .p2 {
+            margin: 30px auto;
+            width: 600px;
+
+        }
+
+        .p3 {
+            margin: auto;
+            width: 600px;
+        }
+
+        .p5 {
+            text-align: center;
+            background-color: rgb(255, 192, 203);
+        }
+
+        body>div {
+            margin: auto;
+            width: 600px
+        }
+
         div>div {
             border: 3px solid;
             width: 174px;
@@ -19,6 +56,7 @@
         }
 
         /* 文字行高与边框高度一致时模型重叠，可以实现居中 */
+        /* 是否可以使用padding对内容区进行居中，具体居中方法？其他居中方式？ */
         /* text-align:center;与line-height:边框行高合用实现居中  */
 
         div>div:nth-child(3n+2) {
@@ -37,13 +75,23 @@
         div>div:hover {
             background-color: red;
         }
+
+
+        .p3:not(.p4) {
+            border-bottom: 1px dotted black;
+        }
     </style>
 </head>
 
-<body style="">
+<body>
     <header>
         <p class="p1">hello world 请调整浏览器窗口大小查看效果</p>
     </header>
+    <p class="p2">页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体
+        宽度600px
+        页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体
+        宽度600px
+        页面主体 宽度600px</p>
     <div id="d1">
         <div>宽180高40(包含边框)</div>
         <div>产品</div>
@@ -58,6 +106,12 @@
         <div>产品</div>
         <div>产品</div>
     </div>
+    <p class="p3">link</p>
+    <p class="p3">link</p>
+    <p class="p3">link</p>
+    <p class="p3">link</p>
+    <p class="p3 p4">link</p>
+    <p class="p5">©版权所有<br>本页所有布局均使用块元素</p>
 
 </body>
 
