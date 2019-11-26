@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)https://pimingxin.github.io/miao/css-block-layout.html -->
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div>div {
+            border: 3px solid;
+            width: 174px;
+            height: 34px;
+            background-color: rgb(255, 192, 203);
+            text-align: center;
+            line-height: 34px;
+        }
+
+        /* 文字行高与边框高度一致时模型重叠，可以实现居中 */
+        /* text-align:center;与line-height:边框行高合用实现居中  */
+
+        div>div:nth-child(3n+2) {
+            margin-left: 210px;
+            margin-top: -40px;
+        }
+
+        div>div:nth-child(3n+3) {
+            margin-left: 420px;
+            margin-top: -40px;
+            margin-bottom: 15px;
+        }
+
+        /* 由于margin-left为420px，由于三个框处于水平位置，margin-bottom数值一致且重叠，所以只用设置该处margin-bottom为15px即可 */
+
+        div>div:hover {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body style="">
+    <header>
+        <p class="p1">hello world 请调整浏览器窗口大小查看效果</p>
+    </header>
+    <div id="d1">
+        <div>宽180高40(包含边框)</div>
+        <div>产品</div>
+        <div>产品</div>
+        <div>水平间隙30px</div>
+        <div>产品</div>
+        <div>产品</div>
+        <div>垂直间隙15px</div>
+        <div>产品</div>
+        <div>产品</div>
+        <div>边框宽度3px</div>
+        <div>产品</div>
+        <div>产品</div>
+    </div>
+
+</body>
+
+</html>
