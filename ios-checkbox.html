@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+    <style>
+        label {
+            display: block;
+            box-sizing: border-box;
+            width: 130px;
+            height: 74px;
+            border: solid rgb(48, 243, 75) 0px;
+            box-shadow: 0 0 1px gray;
+            border-radius: 50px 50px;
+            position: relative;
+            background-color: white;
+            transition-duration: 0.5s;
+        }
+
+        label::after {
+            content: "";
+            height: 62px;
+            width: 62px;
+            border-radius: 50%;
+            box-shadow: 1px 1px 5px gray;
+            background-color: white;
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            transition-duration: 0.5s;
+
+        }
+
+        input {
+            position: relative;
+            display: none;
+        }
+
+        input:checked+label {
+            background: rgb(48, 243, 75);
+            transition-duration: 0.5s;
+            border-width: 36px;
+        }
+
+        input:checked+label::after {
+            content: "";
+            top: -31px;
+            left: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="checkbox" id="as" name="">
+    <label for="as" class="out">
+    </label>
+</body>
+
+</html>
