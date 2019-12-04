@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            font-size: 0;
+            position: relative;
+        }
+
+        img {
+            display: block;
+            width: 300px;
+            height: 253px;
+            opacity: 1;
+            transition: 2s;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        input {
+            display: none;
+        }
+
+        .bar {
+            position: relative;
+            height: 600px;
+            width: 800px;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+
+        body>div>label {
+            margin: 5px;
+            width: 26px;
+            height: 4px;
+            display: inline-block;
+            background: rgb(210, 194, 158);
+            position: relative;
+            left: 327px;
+            top: 440px;
+            z-index: 9;
+        }
+
+        /* 轮播下方翻页条A   div bar*/
+
+        #a:checked~.a {
+            background: black;
+        }
+
+        #b:checked~.b {
+            background: black;
+        }
+
+        #c:checked~.c {
+            background: black;
+        }
+
+        #d:checked~.d {
+            background: black;
+        }
+
+        /* 翻页条A关联input  div bar*/
+
+        .divimg {
+            position: absolute;
+            width: 800;
+            height: 800;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: 0;  
+            vertical-align: middle;   
+        }
+
+
+        /* 11111 */
+
+        #a:checked~.divimg>.p2,
+        #a:checked~.divimg>.p3,
+        #a:checked~.divimg>.p4 {
+            opacity: 0;
+            transition: 2s;
+            left: 300px;
+        }
+
+        #b:checked~.divimg>.p1 {
+            left: -300px;
+            opacity: 0;
+            transition: 2s;
+        }
+
+        #b:checked~.divimg>.p3,
+        #b:checked~.divimg>.p4 {
+            opacity: 0;
+            transition: 2s;
+            left: 300px;
+        }
+
+        #c:checked~.divimg>.p1,
+        #c:checked~.divimg>.p2 {
+            left: -300px;
+            opacity: 0;
+            transition: 2s;
+        }
+
+
+        #c:checked~.divimg>.p4 {
+            opacity: 0;
+            transition: 2s;
+            left: 300px;
+        }
+
+        #d:checked~.divimg>.p1,
+        #d:checked~.divimg>.p2,
+        #d:checked~.divimg>.p3 {
+            opacity: 0;
+            transition: 2s;
+            left: -300px;
+        }
+
+        /* 图片渐变与关联实现 */
+        .buttom2,
+        .buttom4,
+        .buttom6 {
+            border: 11px solid;
+            border-color: transparent rgb(210, 194, 158) transparent transparent;
+            position: absolute;
+            top: 285px;
+            left: 240px;
+            z-index: 9;
+        }
+
+        .buttom1,
+        .buttom3,
+        .buttom5 {
+            border: 11px solid;
+            border-color: transparent transparent transparent rgb(210, 194, 158);
+            position: absolute;
+            top: 285px;
+            left: 540px;
+            z-index: 9;
+        }
+
+        /* button设置，层级设置 */
+
+
+        #a:checked~.divimg>[class="buttom2"],
+        #a:checked~.divimg>[class="buttom3"],
+        #a:checked~.divimg>[class="buttom4"],
+        #a:checked~.divimg>[class="buttom5"],
+        #a:checked~.divimg>[class="buttom6"] {
+            display: none;
+        }
+
+        #b:checked~.divimg>[class="buttom1"],
+        #b:checked~.divimg>[class="buttom4"],
+        #b:checked~.divimg>[class="buttom5"],
+        #b:checked~.divimg>[class="buttom6"] {
+            display: none;
+        }
+
+        #c:checked~.divimg>[class="buttom1"],
+        #c:checked~.divimg>[class="buttom2"],
+        #c:checked~.divimg>[class="buttom3"],
+        #c:checked~.divimg>[class="buttom6"] {
+            display: none;
+        }
+
+        #d:checked~.divimg>[class="buttom1"],
+        #d:checked~.divimg>[class="buttom2"],
+        #d:checked~.divimg>[class="buttom3"],
+        #d:checked~.divimg>[class="buttom4"],
+        #d:checked~.divimg>[class="buttom5"] {
+            display: none;
+        }
+
+        /* 左右移动键设置 */
+    </style>
+</head>
+
+<body>
+    <div class="bar">
+        <input type="radio" name="qwe" id="a" checked>
+        <input type="radio" name="qwe" id="b">
+        <input type="radio" name="qwe" id="c">
+        <input type="radio" name="qwe" id="d">
+        <label class="a" for="a"></label>
+        <label class="b" for="b"></label>
+        <label class="c" for="c"></label>
+        <label class="d" for="d"></label>
+        <div class="divimg">
+            <label class="buttom1" for="b"></label>
+            <label class="buttom2" for="a"></label>
+            <label class="buttom3" for="c"></label>
+            <label class="buttom4" for="b"></label>
+            <label class="buttom5" for="d"></label>
+            <label class="buttom6" for="c"></label>
+            <img class="p1" src="https://i.ibb.co/Ry92FSR/1.png" aclass="p1">
+            <img class="p2" src="https://i.ibb.co/7tCBw9z/2.png" alt="">
+            <img class="p3" src="https://i.ibb.co/XVjcRMz/3.png" alt="">
+            <img class="p4" src="https://i.ibb.co/rGf7DC7/4.png" alt="">
+        </div>
+
+
+
+    </div>
+</body>
+
+</html>
