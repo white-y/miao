@@ -5,6 +5,30 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <style>
+        .line1 {
+            width: 230px;
+            height: 100px;
+            border: 3px solid;
+            border-color: transparent transparent black transparent;
+            border-radius: 104%;
+            position: absolute;
+            left: 280px;
+            top: 85px;
+            z-index: 9;
+        }
+
+        .line2 {
+            width: 251px;
+            height: 100px;
+            border: 3px solid;
+            border-color: transparent transparent black transparent;
+            border-radius: 230%;
+            position: absolute;
+            left: 270px;
+            top: 288px;
+            z-index: 9;
+        }
+
         body {
             font-size: 0;
             position: relative;
@@ -77,8 +101,8 @@
             right: 0;
             top: 0;
             bottom: 0;
-            margin: 0;  
-            vertical-align: middle;   
+            margin: 0;
+            vertical-align: middle;
         }
 
 
@@ -90,12 +114,14 @@
             opacity: 0;
             transition: 2s;
             left: 300px;
+            top: -80px;
         }
 
         #b:checked~.divimg>.p1 {
             left: -300px;
             opacity: 0;
             transition: 2s;
+            top: -80px;
         }
 
         #b:checked~.divimg>.p3,
@@ -103,6 +129,7 @@
             opacity: 0;
             transition: 2s;
             left: 300px;
+            top: -80px;
         }
 
         #c:checked~.divimg>.p1,
@@ -110,6 +137,7 @@
             left: -300px;
             opacity: 0;
             transition: 2s;
+            top: -80px;
         }
 
 
@@ -117,6 +145,7 @@
             opacity: 0;
             transition: 2s;
             left: 300px;
+            top: -80px;
         }
 
         #d:checked~.divimg>.p1,
@@ -125,6 +154,7 @@
             opacity: 0;
             transition: 2s;
             left: -300px;
+            top: -80px;
         }
 
         /* 图片渐变与关联实现 */
@@ -182,8 +212,6 @@
         #d:checked~.divimg>[class="buttom5"] {
             display: none;
         }
-
-        /* 左右移动键设置 */
     </style>
 </head>
 
@@ -198,6 +226,8 @@
         <label class="c" for="c"></label>
         <label class="d" for="d"></label>
         <div class="divimg">
+            <div class="line1"></div>
+            <div class="line2"></div>
             <label class="buttom1" for="b"></label>
             <label class="buttom2" for="a"></label>
             <label class="buttom3" for="c"></label>
