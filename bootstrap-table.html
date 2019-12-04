@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .table {
+            width: 70%;
+            margin: auto;
+            background-color: #ffffff;
+            text-align: left;
+            border-collapse: collapse;
+        }
+
+        .table td,
+        .table th {
+            border-top: 1px solid #DEE2E6;
+            padding: 10px;
+        }
+
+        .table tbody>tr:first-child * {
+            border-top: 2px solid #DEE2E6;
+        }
+
+        /* 原始样式 */
+
+
+        .table-dark {
+            color: #FFFFFF;
+            border: 1px;
+            width: 100%;
+            background-color: #343A40;
+            text-align: left;
+            border-collapse: collapse;
+
+        }
+
+        .table-dark td,
+        .table-dark th {
+            border-color: #454D55;
+        }
+
+        .table-dark tbody>tr:first-child * {
+            border-color: #454D55;
+        }
+
+        /* table-dark */
+
+        .thead-dark {
+            background-color: #343A40;
+            color: #ffffff;
+        }
+
+        /* thead-dark */
+
+
+        .thead-light {
+            background-color: #E9ECEF;
+            color: #495057;
+        }
+
+        /* thead-light */
+
+
+        .table-striped tbody>tr:first-child,
+        .table-striped tbody>tr:nth-child(3) {
+            background-color: rgb(150, 150, 150, 0.1);
+        }
+
+        /*table-striped*/
+
+        .table-bordered td,
+        .table-bordered th {
+            border: 1px solid rgb(222, 226, 230);
+        }
+
+        /* 全边框 */
+        .table-borderless * {
+            border: hidden;
+        }
+
+        /* 无边框 */
+
+        .table-hover tbody>tr:hover {
+            background-color: rgb(150, 150, 150, 0.1);
+        }
+
+        /* table-hover */
+
+        .table-sm td,
+        .table-sm th {
+            padding: 5px;
+        }
+
+        /* padding half */
+    </style>
+</head>
+
+<body>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
