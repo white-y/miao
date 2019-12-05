@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+    <style>
+        /* 实现思路：table为层级A，大量td形成层级B。
+    以整张图片作为table层背景作为层架A，再对td设置背景色作为层级B来覆盖层架A。
+    设置td的背景色不对边框进行填充，再通过hover使边框透明实现效果。
+
+    优点： 1.适合大量td的hover效果设置  2. 能简单实现不同区域边框颜色的多变性。
+
+    缺点： 漏光 */
+
+        body {
+            position: relative;
+            height: 1000px;
+            text-align: center;
+        }
+
+        div {
+            position: absolute;
+            height: 226px;
+            width: 226px;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        td {
+            border: 2px inset black;
+            background-color: green;
+            background-clip: padding-box;
+            /* background-clip:padding-box 解决边框被 background-color:green填充的问题 */
+            width: 20px;
+            height: 20px;
+            padding: 0;
+        }
+
+        table {
+            display: block;
+            border-collapse: collapse;
+            background-image: url(https://img.88tph.com/production/20180102/12421621-1.jpg!/watermark/url/L3BhdGgvbG9nby5wbmc/align/center);
+            /*   rainbow-1 */
+            xbackground-image: url(https://www.publicdomainpictures.net/pictures/220000/nahled/rainbow-colors-background-1497250409c9l.jpg);
+            /*   rainbow-2 */
+            background-size: 241px;
+            position: absolute;
+        }
+
+        /* 背景图片设置 */
+
+        td:hover {
+            border-color: transparent;
+            border-style: solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <table>
+            <tr>
+                <td> </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
