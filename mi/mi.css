@@ -842,7 +842,7 @@ div.displayblock{
   position: absolute;
   right: 0;
   top: 195px;
-  z-index: 10;
+  z-index:10 ;
   width:40px;
   height: 70px;
   background-image:url(https://i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png);
@@ -1263,34 +1263,42 @@ h2{    /*所有H2*/
   width: 978px;
   height: 340px;
   transition:1s;
+  transition-timing-function: cubic-bezier(.46,.88,.48,1);
   background: rgb(245,245,245);
 }
 
 #QQ:checked~div .slide2{
  left: 978px;
   transition:1s;
+  transition-timing-function: cubic-bezier(.46,.88,.48,1);
 }
 #QQ:checked~div .slide3{
   left: 978px;
-  transition:1s;
+  transition:1s ;
+  transition-timing-function: cubic-bezier(.46,.88,.48,1);
 }
 
 #WW:checked~div .slide1{
   left: -978px;
   transition:1s;
+  transition-timing-function: cubic-bezier(.46,.88,.48,1);
 }
 #WW:checked~div .slide3{
-  left: 978px;
+  left: 978px ;
+  transition:1s;
+  transition-timing-function: cubic-bezier(.46,.88,.48,1);
 }
 
 #EE:checked~div .slide2{
   left: -978px;
   transition:1s;
+  transition-timing-function: cubic-bezier(.46,.88,.48,1);
 }
 
 #EE:checked~div .slide1{
   left: -978px;
   transition:1s;
+  transition-timing-function: cubic-bezier(.46,.88,.48,1);
 }
 
 
@@ -2088,6 +2096,7 @@ div.tool-bar *{
 }
 
 div.tool-bar{
+  z-index: 10;
   font-size: 0;
   position: fixed;
   bottom: 70px;
@@ -2149,7 +2158,7 @@ div.tool-bar a>span{
   text-align: center;
    opacity: 0;
    transition-delay: 0.1S;
-   z-index: -4;
+   background-color: white;
 }
 
 div.tool-bar a>span>img{
@@ -2169,9 +2178,11 @@ div.tool-bar a:hover>span{
   transition-duration: 0s,0.2s;
   left: -145px;
   opacity: 1;
-  z-index: 0;
-  
+  z-index: 300;
+}
 
+div.tool-bar a:hover{
+  color: #ff6709;
 }
 
 
