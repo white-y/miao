@@ -1,0 +1,40 @@
+@font-face {font-family: "iconfont";
+  src: url('//at.alicdn.com/t/font_1551722_rflc78av79.eot?t=1576160104098'); /* IE9 */
+  src: url('//at.alicdn.com/t/font_1551722_rflc78av79.eot?t=1576160104098#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAQ0AAsAAAAACPAAAAPnAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDVgqEMINyATYCJAMcCxAABCAFhG0HdRvXB8gOJaHAwABgAABgBPX7oXvvvw8hdIlC9CxRZSLDCiUUhUOhKmyFqfEdHxSmLv+Xm/1IXU+zZjWRsGI0TCBFwpsMUJfjivlZzLJ+Uj/3/79XNfN4wOa1Z3HZa1CioQkUoHQv/NQt2oIUvQ/wDBcm8HkCrYYtxGyVVDWBp0w4LRCXslEPni6dHFMcGqEKuTZDfAc3TRpn7wD4pv9+vEFCeIKkLEA4d/+i2AB5j6WfTnN9U32Wqzjgl2fB7SYKzACZ+Bxqu8OZsRmc1g8W3jbQrpHkx9IPdR/Ej8s/nZ6awkVaJhIcoV3M7URWlpeRVIT8v6PCdnBI8YrHUkJkHusQJY8iouBpGSJ4Wo5IPJ+WG1VifXInWvALwH8gz8hiHrjqdxSVe5RfIIry9VUaJWODQZXqsKG+UzivMc+eCU+eND192jyp5Tavm4zI3dAf3qFpOh8njBOzr5Os9544GMlvOuQDueqR/s6yp/DVPGOSWEF34LL0PV2UmPM9v/+ZKqzv3zAZ1rwutC+0ae3EwxOh8534H+6z4tkHQfuoe/q++ck7g+Nko7gJPTTltq+QdrusDE71KnzHeZC5NuvYsdxZNI/b//r1fhRzVz2333bnq7P/hJ+3MWrjmbGo8bj8Naxz2zYni1meY538fpDw+/iCynW+QQKcBKHHd/2CirwMSOwN7J1dUM22797dztZBf3XV4NW8+nyvePfqtdy1a9zauMjF0qLa7Stb4P8EuLv58GFX+FS4S9NcPgHXHz6kcw8c2OPzM/ynjxb9gkeIf0EahJQ2Oy3uEs8wPFIuMYwI7fCRsJT+sDf1Pe+XuHNcPgCqjgN0HHHozPgbp2eV01YFZP339OEB/kVaTFjz3peh+Aqwe+VS888Dfsqx/BUK+jq/e8v1ArVFjYgktIoz7H9Xr7flKQZSRwiNi3+DpDYEhcYIPpNnoNRmBSqNVWg1rfTmNn0ITmQvYMowQOh2ApJOf6HQ7S4+k99AadB3qHQHB60OIuSebcZC9i4kWE+xAbW0I1lUbJJkpN5GcQM2Oix64hTqVAETVQ6i+Jg4b7IU2zAp4wLVaUygVEISUayoBF6GLRYF2YnSikUaY6LUnhEbK4W9UoyoWMHbJgLTozADpEU7RCZS2EjqYsrb9/MNMCMHCz0S0/XDKsAIlbw7Ei9GXAp8qcyWqmtbsKicjBJQlASREAorpAQsmEWMKRB7+FGtMBEVw5QjYpchlqZJaWUx9Susy3kLWgnY6mAZjuEZN8ad8WA8oe2WYKeMXRYsUV/7EUQ2mqi7qjhUh8LbLfp2ryl6yiKKVRosykS04EV6QhTXokRaAAA=') format('woff2'),
+  url('//at.alicdn.com/t/font_1551722_rflc78av79.woff?t=1576160104098') format('woff'),
+  url('//at.alicdn.com/t/font_1551722_rflc78av79.ttf?t=1576160104098') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('//at.alicdn.com/t/font_1551722_rflc78av79.svg?t=1576160104098#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-previewleft:before {
+  content: "\e75b";
+}
+
+.icon-previewright:before {
+  content: "\e75c";
+}
+
+.icon-sousuo:before {
+  content: "\e663";
+}
+
+.icon-play:before {
+  content: "\e647";
+}
+
+.icon-icon-test:before {
+  content: "\e650";
+}
+
+.icon-circle-arrow-right:before {
+  content: "\e8bb";
+}
