@@ -1374,7 +1374,218 @@ div.row{
   vertical-align: top;
 }
 /*倒计时*/
+.counter>.clock>.min,
+.counter>.clock>.hour,
+.counter>.clock>.day{
+  position: relative;
+  overflow: hidden;
+}
 
+.counter>.clock>.min span,
+.counter>.clock>.hour span,
+.counter>.clock>.day span{
+  xbox-shadow: 1px 1px 1px,-1px -1px 1px;
+  display: block;
+  font-size: 24px;
+}
+
+.counter>.clock>.min>.tensecond{
+  width: 22px; /*min元素左右参半*/
+  height: 46px;
+  text-align: right;
+  padding-right: 1px;
+  position: absolute;
+  left: 0;
+}
+
+.counter>.clock>.min>.second{
+  width: 22px;
+  height: 46px;
+  text-align: left;
+  padding-left: 1px;
+  position: absolute;
+  right: 0;
+}
+
+.counter>.clock>.min>span>span,
+.counter>.clock>.hour>span>span{
+  color:rgb(255,255,255);
+  font-weight: 100;
+  width: 21px;
+  height: 46px;
+  line-height: 46px;
+  padding: 0 1px;
+  position: absolute;
+  top: -46px;
+}
+
+@keyframes move{     /*动画主要帧数设置 */   /*秒*/
+  0%{top:0px;}
+  10%{top:-46px;}
+  100%{top:-46px;}
+}
+
+@keyframes TTmove{        /*10秒*/
+  0%{top:0px;}
+  16.666%{top:-50px}
+  100%{top:-50px;}
+}
+
+@keyframes MTmove{      /*分钟*/
+  0%{top:0px}
+  10%{top:-50px}
+  100%{top:-50px}
+}                   /*此处只设置秒/10秒/分以满足需求，
+未对10分位及小时位做设置，原理一致*/
+
+.T0{
+  animation:10s  move infinite step-end;
+}
+
+.T1{
+  animation:10s 1s move infinite step-end;
+}
+
+.T2{
+  animation:10s 2s move infinite step-end;
+}
+
+.T3{
+  animation:10s 3s move infinite step-end;
+}
+
+.T4{
+  animation:10s 4s move infinite step-end;
+}
+
+.T5{
+  animation:10s 5s move infinite step-end;
+}
+
+.T6{
+  animation:10s 6s move infinite step-end;
+}
+
+.T7{
+  animation:10s 7s move infinite step-end;
+}
+
+.T8{
+  animation:10s 8s move infinite step-end;
+}
+
+.T9{
+  animation:10s 9s move infinite step-end;
+}
+/* 秒动画时间设置 */
+
+.TT0{
+  animation:60s  TTmove infinite step-end;
+}
+
+.TT1{
+  animation:60s 10s TTmove infinite step-end;
+}
+
+.TT2{
+  animation:60s 20s TTmove infinite step-end;
+}
+
+
+.TT3{
+  animation:60s 30s TTmove infinite step-end;
+}
+
+
+.TT4{
+  animation:60s 40s TTmove infinite step-end;
+}
+
+.TT5{
+  animation:60s 50s TTmove infinite step-end;
+}
+/*十秒动画设置*/ 
+
+.counter>.clock>.hour{
+  position: relative;
+}
+
+
+.counter>.clock>.hour>.tenmins{
+  width: 22px;
+  height: 46px;
+  text-align: right;
+  padding-right: 1px;
+  position: absolute;
+  left: 0;
+  color: white;
+  line-height: 46px;
+}
+
+.counter>.clock>.hour>.mins{
+  width: 22px;
+  height: 46px;
+  text-align: left;
+  padding-left: 1px;
+  position: absolute;
+  right: 0;
+}
+/*位置调整设置*/
+
+.M0{
+  animation:600s  MTmove infinite step-end;
+}
+.M1{
+  animation:600s 60s MTmove infinite step-end;
+}
+.M2{
+  animation:600s 120s MTmove infinite step-end;
+}
+.M3{
+  animation:600s 180s MTmove infinite step-end;
+}
+.M4{
+  animation:600s 240s MTmove infinite step-end;
+}
+.M5{
+  animation:600s 300s MTmove infinite step-end;
+}
+.M6{
+  animation:600s 360s MTmove infinite step-end;
+}
+.M7{
+  animation:600s 420s MTmove infinite step-end;
+}
+.M8{
+  animation:600s 480s MTmove infinite step-end;
+}
+.M9{
+  animation:600s 540s MTmove infinite step-end;
+}
+
+/*分钟个位动画设置*/
+
+
+.counter>.clock>.day>span{
+  width: 22px;
+  height: 46px;
+  text-align: right;
+  padding-right: 1px;
+  position: absolute;
+  left: 0;
+  color: white;
+  line-height: 46px;
+}
+
+.counter>.clock>.day>.hours{
+  left: 23px;
+  text-align: left;
+  padding-left: 1px;
+}
+
+
+
+/* 时钟  */
 .row .slidebox{
   display: inline-block; 
   position: relative;
@@ -2010,7 +2221,7 @@ div.videoblock{
   font-size: 26px;
   color:#ff6709;
   margin: 0;
-
+ 
 }
 
 .footer-table>.telbox>.worktime{
