@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <xmeta name="viewport" content="width=500">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <xlink rel="stylesheet" href="mmi.css">
+        <style>
+            html {
+                font-size: calc(10000vw / 500);
+            }
+
+
+            body {
+                margin: 0;
+            }
+
+            a {
+                text-decoration: none;
+                color: rgb(0, 0, 0, 0.3);
+            }
+
+            div.page {
+                font-size: 0;
+                width: 5rem;
+                margin: auto;
+                overflow: hidden;
+                xbox-shadow: 1px 1px 1px, -1px -1px 1px;
+            }
+
+            div.page * {
+                xbox-shadow: 1px 1px 1px, -1px -1px 1px;
+            }
+
+            .page .search-bar {
+                height: 0.5833rem;
+                display: flex;
+                xtext-align: center;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: space-evenly;
+            }
+
+            .search-bar>.milogo {
+                xwidth: 0.6941rem;
+                xheight: 0.2491rem;
+            }
+
+            .search-bar>.milogo>img {
+                width: 0.3331rem;
+                height: 0.2191rem;
+                margin: auto;
+            }
+
+            .search-bar>.searchbox {
+                display: inline-block;
+                width: 3.6119rem;
+                height: 0.4366rem;
+            }
+
+
+            .search-bar>.person>img {
+                width: 0.3166rem;
+                height: 0.3166rem;
+            }
+
+            /*top栏*/
+
+            input {
+                display: none;
+            }
+
+            div.sticky {
+                xheight: 0.4rem;
+                display: flex;
+                justify-content: space-around;
+            }
+
+            .searchbox {
+                background: white;
+                font-size: 0.208333rem;
+                line-height: 0.4366rem;
+                /*行内元素流居中*/
+            }
+
+            .searchbox img {
+                width: 0.3166rem;
+                height: 0.3166rem;
+                vertical-align: middle;
+            }
+
+            div.sticky label {
+                display: block;
+                font-size: 0.180556rem;
+                color: #747474;
+                line-height: 0.4rem;
+            }
+
+
+            div.sticky>div {
+                display: flex;
+            }
+
+
+            div.sticky>div>img {
+                margin: auto;
+                width: 0.2777rem;
+                height: 0.2777rem;
+            }
+
+            .stickybox {
+                position: fixed;
+                width: 5rem;
+                /*流体布局本不应该对外元素设置宽度
+    此处是为了给子元素提供流动性，利于flex布局对子元素的控制*/
+                background-color: #F2F2F2;
+            }
+
+            /*固定栏，用flex结合流体元素布局*/
+
+            div.slidepct {
+                margin-top: 0.9833rem;
+            }
+
+            div.slidepct>img {
+                width: 5rem;
+                height: 2.5rem;
+            }
+
+            /*轮播图*/
+
+            div.imgtips {
+                display: inline-flex;
+                flex-wrap: wrap;
+            }
+
+            div.imgtips>a {
+                display: inline-block;
+            }
+
+            div.imgtips img {
+                width: 1rem;
+                height: 1.0555rem;
+            }
+
+            /*标签图*/
+
+            div.pdtdisplay {
+                margin-top: 0.1111rem;
+                display: flex;
+                flex-wrap: wrap;
+                height: 3.5277rem;
+                /*此处由于flex方向为例，需要宽度来提供折行*/
+                flex-direction: column;
+                justify-content: space-between;
+                align-content: space-between;
+            }
+
+            div.pdtdisplay>a {
+                display: inline-block;
+            }
+
+            div.pdtdisplay>a>.bigp {
+                height: 3.5277rem;
+            }
+
+            div.pdtdisplay>a>.smallp {
+                height: 1.75rem;
+            }
+
+            /*display block one*/
+
+            .pdtdisplay2 {
+                margin-top: 0.1111rem;
+            }
+
+            .pdtdisplay2>img {
+                width: 5rem;
+                height: 1.9444rem;
+            }
+
+            .pdtdisplay3 {
+                margin-top: 0.1111rem;
+            }
+
+            .pdtdisplay3>img {
+                width: 5rem;
+                height: 3.0555rem;
+            }
+        </style>
+        <title>Document</title>
+
+</head>
+
+<body>
+    <div class=page>
+        <input type="checkbox" name="D" id="D1">
+        <input type="checkbox" name="D" id="D2">
+        <input type="checkbox" name="D" id="D3">
+        <input type="checkbox" name="D" id="D4">
+        <input type="checkbox" name="D" id="D5">
+        <input type="checkbox" name="D" id="D6">
+        <div class="stickybox">
+            <div class="search-bar sticky">
+                <a href="" class="milogo"><img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEwAAAAyCAYAAAD2vz2aAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MjQ2OUE2MkU0RTQ4MTFFNzgxOTZBRDJFQjk4Qjk0NjQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MjQ2OUE2MkY0RTQ4MTFFNzgxOTZBRDJFQjk4Qjk0NjQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpCOUQ0QkM2RjREQ0MxMUU3ODE5NkFEMkVCOThCOTQ2NCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpCOUQ0QkM3MDREQ0MxMUU3ODE5NkFEMkVCOThCOTQ2NCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PiL8gcIAAAF1SURBVHja7Ju/LwRRFEbf+FVsQ0dBdJKNSksUSqVCr6AhKxGVwn+gVUpQEI1So5XoZUOhEbKMDiESIeOTzPbvzpoxz5wvOd3duzsn++7cSXajZMU9OOeGXPmTiHtxIU7FoYh/oe+ZmPKsjSMJS1yY+RS7YrNDcTdi1Le4y4WbHrEorsRcUW8asrB2BsSxWEeYLVtiCWG2bIsJhPmnV+zkeV3/TZhLv2HzCLNlFWG2TIqRvHYZa97FR84XXEvnUSeZEft/LexZDIvXnIVFop6uCQ3RnaHHeBmO5FMBstrPjZdiTUyLlww9Bqs6w87FcobX9Vd56B+IZoZjXVlhP0f0qAwfJKS1ookw+w0HYaEFYQVs+j4ZE7Oed6o3sVfA00OphW2IBUN9S5xU+Uhad6A+ZhhDnyAMYQhDGMIQRhCGMIQhDGEEYQhDGMIQhjCCMIQhDGEIIwhDWFHCLP81vPOsezT0/BK3nj0tP1i59qxrGXrG3wIMAK5yNsqRAjAyAAAAAElFTkSuQmCC"
+                        alt=""></a>
+                <a href="" class="searchbox"><img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAQAAAD/5HvMAAAEx0lEQVQYGe3Bf0yUdRwH8I9GpBtZVpul0y1/ZD8sKzdXbupMh3Pq0jWtzbVs9YfL8scfLq02h1m52R3c832+z/d5HrjjAOH4KQhy4MQD4eS4gXiCePLjBIwU8VeCOAPy3dZf/mEpz56zW93rRRQVFRUVFfU/dGFM+UTHlOrXzq/yf9HwefeS0plpk4/F0b+je5x/UZXIPZV+URmRwMEhQfs940K+ry6hYTY9Wu0Tyze6yxVYwSGgQoUKFSpUCMiwwH6zPLVqZVcsPRrlSwvqVVghwMGhQYMOHTp0aNDAIcBhhQ53UcWLFH4127QrElQwqEi7keUu21W/vnl5+/y2dwKraj8p3pdZ7bzDIYNDQmqweQWFU/cTpU4GAQUMro6SbR2z6D4aFuRb0m4yqFCgDXq3U7hciynOSYQOBertgr2np9I/ODHPlSlDg4AN3m8oPKq+t0GHguSexg/ogepjPbvZkIACbci3lsx3Yr06rECGvSO4gB6SbxMb5pBhDwZeInN1vWJvY5DB+5uX0ShUfmeDAhtKCkOxZCZPogUCMo5vpFEJxRSkcKiQ0BBP5gnMSu+RIaGokEatc2ZqSEBCqasnhszi32SFgBYKLiQDqnfI0CAGz79B5uibkOOVIZCXTob0TrK3qeA4tpfM0TmPQYO427CBDHLrDAoO+H+LITM0r+VQkRy88DwZFFiXBAWOS73PkRl8WzgU5JVVjyeDQi+LPhmOW63zyAxH9yvgKE31jCGDKqZltTPYh+rXkBmKXAIyKpLIsJpn8hskpMDzJZmhKFuAoXIfGeaPO+i1IQXHtpIZPHsVyCgXZJhnUm6TBPtI3UdkBv9mDo5DOVUxZFDpjAO/yHDcCcSTGVreZxDI8F58kgxqelMe5LD3h+aQGbrnsBENYrDjbTKobnMSFLh8A7Fkhpa4Ao8MgcpdZEjTuAI3h4DnRzJLYEMiODKPX3qKDAjOF30a+N3gYjJLz+SMs0lQUL2ZDDiYqkDCQffFcWSeih8sYEht/HUqjVJgjehTIOH0CjJT99QDbRJsKCxtG0+j0PWqvUOGFYdzyGxnlyVf5ZCQ9xM9tJPP5jbaIMEZ7J5B5jv6FR/iUPsP778eRw+hc4ajhEGBs+NkPIXDmTFuRyI4FBSW9EyhB2h9N+O0AgEFR5MoXK49XilzMDBktBZ+Fnia/oZ/ev6elKscAioUOEPtCyl8POucfRwSZOTVunZWxg9MoHtcnuxek5mQE7JBhoAODQIStBttCyh8OubmHEke4LBAhXM4uykt35mWb8212bPSi7M6nX9wWCGQfL2M9U73JjBw2KBfbl1M4VPxmG9tdl76gA0WWCBBhQYNKiRY8TMYMnuzXdVL6S/H90hQwGHvObeEwiv4Vpn1UG1ea9ZV510dOhxIG8npOnykNKF5Lt2jZjeDCgXJl4PLKdx6xja+4Hm94D3Hh471rhXFi+qm0X3UfMsgwKDeOreUIoP3awYFEsTNs8soMnh3MnAw6FdallNkOLGLQUBBcl/LSooMtTtkqODQBlpWU2TwbZGhgEG5fWY1RQbfVhkcDKK/eTVFhtrtMjg49Butiygy+LfKEOAodlKkCHyq94vhUx9T5GiYXjn73FiKioqKior6z/oTCs8KMOW0P6QAAAAASUVORK5CYII="
+                        alt="">搜索商品名称</a>
+                <a href="" class="person"><img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAAkFBMVEUAAABiYmJoaGhxcXFwcHBwcHBycnJwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBzc3NycnJwcHB2dnZwcHBwcHBxcXFwcHBwcHBwcHBwcHBwcHBwcHBwcHBvb29wcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBvb29wcHBwcHBwcHBwcHBnZ2dwcHC6NtRcAAAAMHRSTlMAAwoXHycsRXWfxdzz+jB+vv8ljv/+72HU682aahOXTQ+wNblUtazlb1elWuE7B4ObTEwxAAADdklEQVR4AZWWh5rqOgyEnd7LEA2k0Os24P3f7vLdBVOSTTizBbfflmVZWHXJUBeZlu24rmNbpm56U5bnB2EUJ0kchYHvWep9pVke40FxnqX9hLZ4VEQQgEk8vihOCAiiYnTpHGKNSQmAVd1MvdRxUm/a1BUBlJNLZz87mycAo2axNHTjctFEBJL5rI82lL0SYjxfX+sX/ZbW8zEoK1sZPexGiHL7cDa6uC1B2XTQ2uaVEDv3idS8uwNl9bflhRB7q7vbUNYelOKvhRck8g5W0znIhTI6+2rwsO5zyfpA1N2zfwg5Ub2akPLR6a0I2Jn9J2nugKjLZ5/s3FDLLfxUba0guTUYgLlg1e6wIkg2HPqZIJq1DRpj3Gu1HlbpYbrVT6QcDcOjWpKPFlxAclMNyswFRQv+ElmpN7QS+WrBe5H9kNV6XP/Kre5HuL3yHLIx1LB2gnkLzii1peuW9RwES10KhVkL/o5x8G6tXlnq8kXTn91vCjHU8Ufi75Zv3AMwvbUWIuFSGbebWIlsr+UpcXBVSyHk6zbjBGRxO3UnB+PrPT99CULVVkZU66txy42Q+/X/w7c1KGdtBJh1wE6lM5Sh0lKIn+Dbm+5iEF+3O1wIK0d1aA6Oj7ddpzkAxuMEv9le/bprTDSdsZNWxEanCescERAgCSeXputuwCrtjsMMRHEZdI2p1N/XUdhMLB1lBYjsrzSxAZk9BOPSSUfGfTaflFyb1kqtEZhkevjvqNv/U5YQUU9qXlQgG/s+n6GH2gGIaqF6tD2ACL/NVg74DEEctqpXXg0i3kxe5lzFIGpPDcgJElA4ffouiYVIAkcN6vRdM0HsKkP7MUHC8PvUz11d3JDE8Q57QrL47Rt4DB2bmMRudoetXMi4OQ4+h2b+Dwis7Ke7vieIH3/Zz7orgizPs5eT8ksS3Lt97LEE8XN+fa9dKs75AKI89rCREJujemavVS8HJTr+FdpuKUQwa6FX3ArAru8znXtQmH8/aMwClFX3gDOI5tT3oDk1IM6dG44fEknPjY+7nLbDLXuqvscUsGs3b2NtUR+dgfG2tcRe9PusD7ZLyKplzw94VidjSKoAfvTurrAPRLZ6Q3YE+C8WBoLQHjmjATkjO4QEL8EVgUn1lhKidJXxAC9A4k2RWDzBn5LwPSVkIp9Pm16m7j8ovWaF/wCc31NtcLeHeAAAAABJRU5ErkJggg=="
+                        alt=""></a>
+            </div>
+
+            <div class=" sticky">
+                <label for="D1" class="mainpage1">推荐</label>
+                <label for="D2" class="mainpage2">手机</label>
+                <label for="D3" class="mainpage3">智能</label>
+                <label for="D4" class="mainpage4">电视</label>
+                <label for="D5" class="mainpage5">笔记本</label>
+                <label for="D6" class="mainpage6">家电</label>
+                <div class="mainpage7">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAAABlBMVEX///+9vb18/6H5AAAAAXRSTlMAQObYZgAAAF9JREFUeNrtzCESwDAMxMD4/59umIBJJ6JalLo3OkmS5Ie55IbRyAmrUQtmlxisoeswtR3GurPn+4crcXYljq7EyZU4uBKfrsSHK/F0JR6mhCPYDmwHdKzVUaWTJElefOyLAQtGqMZ7AAAAAElFTkSuQmCC"
+                        alt="">
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="slidepct">
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e5a0c56428bde232ffcff3e53a13eb47.jpg?thumb=1&w=720&h=360"
+                    alt="">
+            </div>
+            <div class="imgtips">
+                <a href=""><img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/cb65daec7ef7b52cc785f88f78efba37.png?thumb=1&w=144&h=152"
+                        alt=""></a>
+                <a href=""><img src="https://i8.mifile.cn/v1/a1/eb5024fe-dfe3-6e53-3e18-675bef5fa06e.webp" alt=""></a>
+                <a href=""><img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/780602689f55569ed27edf86cda44d03.jpg?thumb=1&w=144&h=152"
+                        alt=""></a>
+                <a href=""><img src="https://i8.mifile.cn/v1/a1/e8bc849a-0a3b-21a0-6810-7da3a3903dee.webp" alt=""></a>
+                <a href=""><img src="https://i8.mifile.cn/v1/a1/7dbcbf87-6a58-adb6-2f3f-bb3dae3e9c80.webp" alt=""></a>
+                <a href=""><img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/bc1c677a6e10e42d00fb0a063662fbf9.png?thumb=1&w=144&h=152"
+                        alt=""></a>
+                <a href=""><img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/9ea68dee2bfa0e55a82236b0d968e975.png?thumb=1&w=144&h=152"
+                        alt=""></a>
+                <a href=""><img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/1b92680601206b48b885d883c23b83e2.png?thumb=1&w=144&h=152"
+                        alt=""></a>
+                <a href=""><img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/9425031cdd7af22d9a23a5ae16d1f57c.jpg?thumb=1&w=144&h=152"
+                        alt=""></a>
+                <a href=""><img
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/f11f9df6b0b0b428f8c8fc3267131830.png?thumb=1&w=144&h=152"
+                        alt=""></a>
+            </div>
+            <div class="pdtdisplay">
+                <a href=""><img class="bigp"
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/32b5d24417b673008f386592c4d17046.jpg?thumb=1&w=358&h=508"
+                        alt=""></a>
+                <a href=""><img class="smallp"
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4aea81c738383c9787b49c3d5e6a7ab0.jpg?thumb=1&w=358&h=252"
+                        alt=""></a>
+                <a href=""><img class="smallp"
+                        src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/267e988a99b5cf4e960747e8aa5fa831.jpg?thumb=1&w=358&h=252"
+                        alt=""></a>
+            </div>
+            <div class="pdtdisplay2"><img
+                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/3ca39ff880dfbcbc0e45314782c39fff.jpg?thumb=1&w=720&h=280"
+                    alt=""></div>
+            <div class="pdtdisplay3"><img
+                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e32eea5c3c27062019f9ac6434b351df.jpg?thumb=1&w=720&h=440"
+                    alt=""></div>
+        </div>
+        <div></div>
+    </div>
+</body>
+
+</html>
