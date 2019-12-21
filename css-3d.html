@@ -2,228 +2,376 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <style>
-       body{
-  display:flex;
-  height: 600px;
-}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <style>
+    body {
+      display: flex;
+      height: 600px;
+    }
 
-label{
-  display:block;
-  width: 20px;
-  height: 85px;
-  margin:0 10px;
-  border:solid;
-  text-align:center;
-}
+    /*标签部分*/
+    label {
+      display: block;
+      width: 20px;
+      height: 85px;
+      /*控制标签*/
+      margin: 0 10px;
+      border: solid;
+      text-align: center;
+    }
 
-.box{
-  position:relative;
-  top:30px;
-  width: 100px;
-  height: 100px;
-  margin:auto;
-  box-shadow:1px 1px 1px,-1px -1px 1px;
-  transform:perspective(500px) rotatex(0deg) rotatey(0deg) rotatez(0deg);
-  transform-style:preserve-3d;
-  transform-origin:center center -50px;
-}
+    .transform:checked~.button1 {
+      background-color: red;
+    }
 
-input{
-  display:none;
-}
+    input {
+      display: none;
+    }
 
-.transform:checked~.button1{
-  background-color:red;
-}
+    /*父级块基本设置*/
+    .box {
+      position: relative;
+      top: 30px;
+      width: 100px;
+      height: 100px;
+      margin: auto;
+      box-shadow: 1px 1px 1px, -1px -1px 1px;
+      transform-style: preserve-3d;
+      /*3D变换的灵魂，preserve:维持…的原状 */
+      transform-origin: center center -50px;
+      /*该行本意为父级平面的变换中心与子级变换中心重叠，但似乎没有作用，待梳理*/
+    }
 
-.transform:checked~.box{
-  animation:5s boxrotate forwards;
-}
+    /*父级平面旋转设定*/
+    .transform:checked~.box {
+      animation: 5s boxrotate forwards;
+    }
 
 
-@keyframes boxrotate{
-  0%{transform:perspective(600px) rotatex(0deg) rotatey(0deg) ;}
-  7.5%{transform:perspective(400px) rotatex(0deg) rotatey(145deg) ;}
-  25%{transform:perspective(400px) rotatex(0deg) rotatey(155deg) ;}
-  32.5%{transform:perspective(300px) rotatex(0deg) rotatey(405deg) ; }
-  50%{transform:perspective(300px) rotatex(0deg) rotatey(415deg) ; }
-  57.5%{transform:perspective(400px) rotatex(0deg) rotatey(450deg) ; }
-  75%{transform:perspective(400px) rotatex(0deg) rotatey(450deg) ; }
-  100%{transform:perspective(400px) rotatex(135deg) rotatey(595deg);} 
-}
+    @keyframes boxrotate {
+      0% {
+        transform: perspective(600px) rotatex(0deg) rotatey(0deg);
+      }
 
-.box *{
-  box-shadow:1px 1px 1px,-1px -1px 1px;
-}
+      7.5% {
+        transform: perspective(400px) rotatex(0deg) rotatey(145deg);
+      }
 
-.box>div{
-  position:absolute;
-  width: 100px;
-  height: 100px;
-  transform-origin:center center -50px;
-  background-size:contain;
-}
+      25% {
+        transform: perspective(400px) rotatex(0deg) rotatey(155deg);
+      }
 
-/*以下为单面动画及延迟*/
-.F1{
-  transform:rotatey(0deg);
-  background-image:url(https://i.ibb.co/MnjL7SD/1.png);
-  z-index: 1;
-}
+      32.5% {
+        transform: perspective(300px) rotatex(0deg) rotatey(405deg);
+      }
 
-.F2{
-  transform:rotatey(0deg);
-  background-image:url(https://i.ibb.co/2gvTNVq/5.png);
-}
+      50% {
+        transform: perspective(300px) rotatex(0deg) rotatey(415deg);
+      }
 
-.F3{
-  transform:rotatey(0deg);
-  background-image:url(https://i.ibb.co/F6QyCrP/6.png);
-}
+      57.5% {
+        transform: perspective(400px) rotatex(0deg) rotatey(450deg);
+      }
 
-.F4{
-  transform:rotatey(0deg);
-  background-image:url(https://i.ibb.co/4jjM4xv/3.png);
-}
+      75% {
+        transform: perspective(400px) rotatex(0deg) rotatey(450deg);
+      }
 
-.F5{
-  transform:rotatex(0deg);
-  background-image:url(https://i.ibb.co/8mSkCHH/2.png);
-}
+      100% {
+        transform: perspective(400px) rotatex(135deg) rotatey(595deg);
+      }
+    }
 
-.F6{
-  transform:rotatex(0deg);
-  background-image:url(https://i.ibb.co/rGZXFjK/4.png);   
-}
-/* */
+    /*利用关键帧的设置实现快慢镜头，长度为7.5%的时间为瞬变，17.5%为停留*/
+    /*共四段0~25%  25%~50%  50%~75%  75%~100%，一二段配合子级框的时间设置实现慢镜头，三四段未同步子元素*/
 
-.transform:checked~.box .F2{
-  transform:rotatey(540deg);
-  animation:5s sdF2 linear, 8s shake;
-}
-.transform:checked~.box .F3{
-  transform:rotatey(450deg);
-  animation:5s sdF3 linear, 8s shake;
-}
-.transform:checked~.box .F4{
-  transform:rotatey(-450deg);
-  animation:5s sdF4 linear, 8s shake;
-}
-.transform:checked~.box .F5{
-  transform:rotatex(450deg);
-  animation:5s sdF5 linear, 8s shake;
-}
-.transform:checked~.box .F6{
-  transform:rotatex(-450deg);
-  animation:5s sdF6 linear, 8s shake;
-}
 
-@keyframes shake{
-  0%{transform-origin:center center -140px;}
-  62.5%{transform-origin:center center -140px;}
-  100%{transform-origin:center center -50px;}
-}
-  
-@keyframes sdF2{
-  0%{transform:rotatey(0deg);}
-  7.5%{transform:rotatey(180deg);}
-  25%{transform:rotatey(190deg);}
-  32.5%{transform:rotatey(180deg);}
-  50%{transform:rotatey(180deg);}
-  100%{transform:rotatey(900deg);}
-}
+    /*子级元素基本设置*/
+    .box * {
+      box-shadow: 1px 1px 1px, -1px -1px 1px;
+      /*构图阴影*/
+    }
 
-@keyframes sdF3{
-    0%{transform:rotatey(0deg);}
-    7.5%{transform:rotatey(45deg);}
-  25%{transform:rotatey(55deg);}
-  32.5%{transform:rotatey(270deg);}
-  50%{transform:rotatey(270deg);}
-  100%{transform:rotatey(1170deg);}
-}
+    .box>div {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-size: contain;
+      transform-origin: center center -50px;
+      /*同步子级元素旋转中心为立方体中心*/
+      /*绕线旋转、绕点旋转区分*/
+    }
 
-@keyframes sdF4{
-    0%{transform:rotatey(0deg);}
-    7.5%{transform:rotatey(-45deg);}
-  25%{transform:rotatey(-55deg);}
-  32.5%{transform:rotatey(-270deg);}
-  50%{transform:rotatey(-270deg);}
-  100%{transform:rotatey(-1170deg);}
-}
+    /*⬇初始位置及图像设置⬇*/
+    .F1 {
+      transform: rotatey(0deg);
+      background-image: url(https://i.ibb.co/MnjL7SD/1.png);
+      z-index: 1;
+    }
 
-@keyframes sdF5{
-    0%{transform:rotatex(0deg);}
-      7.5%{transform:rotatex(45deg);}
-  25%{transform:rotatex(55deg);}
-  32.5%{transform:rotatex(270deg);}
-  50%{transform:rotatex(270deg);}
-  100%{transform:rotatex(810deg);}
-}
+    .F2 {
+      transform: rotatey(0deg);
+      background-image: url(https://i.ibb.co/2gvTNVq/5.png);
+    }
 
-@keyframes sdF6{
-    0%{transform:rotatex(0deg);}
-      7.5%{transform:rotatex(-45deg);}
-  25%{transform:rotatex(-55deg);}
-  32.5%{transform:rotatex(-270deg);}
-  50%{transform:rotatex(-270deg);}
-  100%{transform:rotatex(-1170deg);}
-}
-/*变形代码*/
+    .F3 {
+      transform: rotatey(0deg);
+      background-image: url(https://i.ibb.co/F6QyCrP/6.png);
+    }
 
-/* .zhuandong:checked~.box{
+    .F4 {
+      transform: rotatey(0deg);
+      background-image: url(https://i.ibb.co/4jjM4xv/3.png);
+    }
+
+    .F5 {
+      transform: rotatex(0deg);
+      background-image: url(https://i.ibb.co/8mSkCHH/2.png);
+    }
+
+    .F6 {
+      transform: rotatex(0deg);
+      background-image: url(https://i.ibb.co/rGZXFjK/4.png);
+    }
+
+    /*⬇单面动画及延迟⬇*/
+    .transform:checked~.box .F2 {
+      transform: rotatey(540deg);
+      animation: 5s sdF2 linear, 8s shake;
+      /*animation支持多keyframes name ! ! !*/
+    }
+
+    .transform:checked~.box .F3 {
+      transform: rotatey(450deg);
+      animation: 5s sdF3 linear, 8s shake;
+    }
+
+    .transform:checked~.box .F4 {
+      transform: rotatey(-450deg);
+      animation: 5s sdF4 linear, 8s shake;
+    }
+
+    .transform:checked~.box .F5 {
+      transform: rotatex(450deg);
+      animation: 5s sdF5 linear, 8s shake;
+    }
+
+    .transform:checked~.box .F6 {
+      transform: rotatex(-450deg);
+      animation: 5s sdF6 linear, 8s shake;
+    }
+
+    /*⬇设置子级平面与中心垂直距离动画⬇*/
+    @keyframes shake {
+      0% {
+        transform-origin: center center -140px;
+      }
+
+      62.5% {
+        transform-origin: center center -140px;
+      }
+
+      100% {
+        transform-origin: center center -50px;
+      }
+    }
+
+    /*⬇设置子级平面旋转动画⬇*/
+    /*变形核心代码*/
+    @keyframes sdF2 {
+      0% {
+        transform: rotatey(0deg);
+      }
+
+      7.5% {
+        transform: rotatey(180deg);
+      }
+
+      25% {
+        transform: rotatey(190deg);
+      }
+
+      32.5% {
+        transform: rotatey(180deg);
+      }
+
+      50% {
+        transform: rotatey(190deg);
+      }
+
+      100% {
+        transform: rotatey(900deg);
+      }
+    }
+
+    @keyframes sdF3 {
+      0% {
+        transform: rotatey(0deg);
+      }
+
+      7.5% {
+        transform: rotatey(45deg);
+      }
+
+      25% {
+        transform: rotatey(55deg);
+      }
+
+      32.5% {
+        transform: rotatey(270deg);
+      }
+
+      50% {
+        transform: rotatey(280deg);
+      }
+
+      100% {
+        transform: rotatey(1170deg);
+      }
+    }
+
+    @keyframes sdF4 {
+      0% {
+        transform: rotatey(0deg);
+      }
+
+      7.5% {
+        transform: rotatey(-45deg);
+      }
+
+      25% {
+        transform: rotatey(-55deg);
+      }
+
+      32.5% {
+        transform: rotatey(-270deg);
+      }
+
+      50% {
+        transform: rotatey(-280deg);
+      }
+
+      100% {
+        transform: rotatey(-1170deg);
+      }
+    }
+
+    @keyframes sdF5 {
+      0% {
+        transform: rotatex(0deg);
+      }
+
+      7.5% {
+        transform: rotatex(45deg);
+      }
+
+      25% {
+        transform: rotatex(55deg);
+      }
+
+      32.5% {
+        transform: rotatex(270deg);
+      }
+
+      50% {
+        transform: rotatex(270deg);
+      }
+
+      100% {
+        transform: rotatex(810deg);
+      }
+    }
+
+    @keyframes sdF6 {
+      0% {
+        transform: rotatex(0deg);
+      }
+
+      7.5% {
+        transform: rotatex(-45deg);
+      }
+
+      25% {
+        transform: rotatex(-55deg);
+      }
+
+      32.5% {
+        transform: rotatex(-270deg);
+      }
+
+      50% {
+        transform: rotatex(-270deg);
+      }
+
+      100% {
+        transform: rotatex(-1170deg);
+      }
+    }
+
+
+    /* .zhuandong:checked~.box{
   transform:perspective(500px) rotatex(1060deg) rotatey(1060deg) rotatez(1060deg);
   transition:20s;
-} */
+} 
+该代码设置transition后checkbox切换旋转动画无效果，待清理*/
 
-.zhuandong:checked~.button2{
-  background-color:red;
-}
 
-.zhuandong:checked~.box{
-  animation:10s zhuandong infinite;
-}
+    /*⬇立体旋转动画设置code⬇*/
+    .zhuandong:checked~.button2 {
+      background-color: red;
+    }
 
-@keyframes zhuandong{
-  0%{transform:perspective(500px) rotatex(0deg) rotatey(0deg) rotatez(0deg);}
-  100%{transform:perspective(500px) rotatex(1060deg) rotatey(1060deg) rotatez(1060deg);}
-}
+    .zhuandong:checked~.box {
+      animation: 10s zhuandong infinite;
+    }
 
-.zhuandong:checked~.box .F2{
-  transform:rotatey(180deg);
-}
-.zhuandong:checked~.box .F3{
-  transform:rotatey(90deg);
-}
-.zhuandong:checked~.box .F4{
-  transform:rotatey(-90deg);
-}
-.zhuandong:checked~.box .F5{
-  transform:rotateX(90deg);
-}
-.zhuandong:checked~.box .F6{
-  transform:rotateX(-90deg);
-}
-/*转动CODE*/
-    </style>
-    <title>JS Bin</title>
+    @keyframes zhuandong {
+      0% {
+        transform: perspective(500px) rotatex(0deg) rotatey(0deg) rotatez(0deg);
+      }
+
+      100% {
+        transform: perspective(500px) rotatex(1060deg) rotatey(1060deg) rotatez(1060deg);
+      }
+    }
+
+    .zhuandong:checked~.box .F2 {
+      transform: rotatey(180deg);
+    }
+
+    .zhuandong:checked~.box .F3 {
+      transform: rotatey(90deg);
+    }
+
+    .zhuandong:checked~.box .F4 {
+      transform: rotatey(-90deg);
+    }
+
+    .zhuandong:checked~.box .F5 {
+      transform: rotateX(90deg);
+    }
+
+    .zhuandong:checked~.box .F6 {
+      transform: rotateX(-90deg);
+    }
+  </style>
+  <title>JS Bin</title>
 </head>
 
 <body>
-    <input class="transform" type="radio" name="qwe" id="bianxin">
-    <input class="zhuandong" type="radio" name="qwe" id="asd">
-    <label class="button1" for="bianxin">点击变形</label>
-    <label class="button2" for="asd">点击转动</label>
-    <div class="box">
-        <div class="F1"></div>
-        <div class="F2"></div>
-        <div class="F3"></div>
-        <div class="F4"></div>
-        <div class="F5"></div>
-        <div class="F6"></div>
-    </div>
+  <input class="transform" type="radio" name="qwe" id="bianxin">
+  <input class="zhuandong" type="radio" name="qwe" id="asd">
+  <label class="button1" for="bianxin">点击变形</label>
+  <label class="button2" for="asd">点击转动</label>
+  <div class="box">
+    <div class="F1"></div>
+    <div class="F2"></div>
+    <div class="F3"></div>
+    <div class="F4"></div>
+    <div class="F5"></div>
+    <div class="F6"></div>
+  </div>
 </body>
 
 </html>
