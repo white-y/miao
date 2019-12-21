@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <style>
+        body {
+            display: flex;
+            height: 600px;
+        }
+
+        label {
+            display: block;
+            width: 20px;
+            height: 85px;
+            margin: 0 10px;
+            border: solid;
+            text-align: center;
+        }
+
+        .box {
+            position: relative;
+            top: 30px;
+            width: 100px;
+            height: 100px;
+            margin: auto;
+            box-shadow: 1px 1px 1px, -1px -1px 1px;
+            transform: perspective(500px) rotatex(0deg) rotatey(0deg) rotatez(0deg);
+            transform-style: preserve-3d;
+            transform-origin: center center -50px;
+        }
+
+        input {
+            display: none;
+        }
+
+        .transform:checked~.button1 {
+            background-color: red;
+        }
+
+        .transform:checked~.box {
+            animation: 5s boxrotate forwards;
+        }
+
+
+        @keyframes boxrotate {
+            0% {
+                transform: perspective(600px) rotatex(0deg) rotatey(0deg);
+            }
+
+            7.5% {
+                transform: perspective(400px) rotatex(0deg) rotatey(145deg);
+            }
+
+            25% {
+                transform: perspective(400px) rotatex(0deg) rotatey(155deg);
+            }
+
+            32.5% {
+                transform: perspective(300px) rotatex(0deg) rotatey(405deg);
+            }
+
+            50% {
+                transform: perspective(300px) rotatex(0deg) rotatey(415deg);
+            }
+
+            57.5% {
+                transform: perspective(400px) rotatex(0deg) rotatey(450deg);
+            }
+
+            75% {
+                transform: perspective(400px) rotatex(0deg) rotatey(450deg);
+            }
+
+            100% {
+                transform: perspective(400px) rotatex(405deg) rotatey(765deg) rotatez(360deg);
+            }
+        }
+
+        .box * {
+            box-shadow: 1px 1px 1px, -1px -1px 1px;
+        }
+
+        .box>div {
+            position: absolute;
+            left: px;
+            top: px;
+            width: 100px;
+            height: 100px;
+            transform-origin: center center -50px;
+            background-size: contain;
+        }
+
+        /*以下为单面动画及延迟*/
+        .F1 {
+            transform: rotatey(0deg);
+            background-image: url(https://i.ibb.co/MnjL7SD/1.png);
+            z-index: 1;
+        }
+
+        .F2 {
+            transform: rotatey(0deg);
+            background-image: url(https://i.ibb.co/2gvTNVq/5.png);
+        }
+
+        .F3 {
+            transform: rotatey(0deg);
+            background-image: url(https://i.ibb.co/F6QyCrP/6.png);
+        }
+
+        .F4 {
+            transform: rotatey(0deg);
+            background-image: url(https://i.ibb.co/4jjM4xv/3.png);
+        }
+
+        .F5 {
+            transform: rotatex(0deg);
+            background-image: url(https://i.ibb.co/8mSkCHH/2.png);
+        }
+
+        .F6 {
+            transform: rotatex(0deg);
+            background-image: url(https://i.ibb.co/rGZXFjK/4.png);
+        }
+
+        /* */
+
+        .transform:checked~.box .F2 {
+            transform: rotatey(540deg);
+            animation: 5s sdF2 linear, 8s shake;
+        }
+
+        .transform:checked~.box .F3 {
+            transform: rotatey(450deg);
+            animation: 5s sdF3 linear, 8s shake;
+        }
+
+        .transform:checked~.box .F4 {
+            transform: rotatey(-450deg);
+            animation: 5s sdF4 linear, 8s shake;
+        }
+
+        .transform:checked~.box .F5 {
+            transform: rotatex(450deg);
+            animation: 5s sdF5 linear, 8s shake;
+        }
+
+        .transform:checked~.box .F6 {
+            transform: rotatex(-450deg);
+            animation: 5s sdF6 linear, 8s shake;
+        }
+
+        @keyframes shake {
+            0% {
+                transform-origin: center center -140px;
+            }
+
+            50% {
+                transform-origin: center center -140px;
+            }
+
+            100% {
+                transform-origin: center center -50px;
+            }
+        }
+
+        @keyframes sdF2 {
+            0% {
+                transform: rotatey(0deg);
+            }
+
+            7.5% {
+                transform: rotatey(180deg);
+            }
+
+            25% {
+                transform: rotatey(190deg);
+            }
+
+            32.5% {
+                transform: rotatey(180deg);
+            }
+
+            50% {
+                transform: rotatey(180deg);
+            }
+
+            100% {
+                transform: rotatey(1260deg);
+            }
+        }
+
+        @keyframes sdF3 {
+            0% {
+                transform: rotatey(0deg);
+            }
+
+            7.5% {
+                transform: rotatey(45deg);
+            }
+
+            25% {
+                transform: rotatey(55deg);
+            }
+
+            32.5% {
+                transform: rotatey(270deg);
+            }
+
+            50% {
+                transform: rotatey(270deg);
+            }
+
+            100% {
+                transform: rotatey(1170deg);
+            }
+        }
+
+        @keyframes sdF4 {
+            0% {
+                transform: rotatey(0deg);
+            }
+
+            7.5% {
+                transform: rotatey(-45deg);
+            }
+
+            25% {
+                transform: rotatey(-55deg);
+            }
+
+            32.5% {
+                transform: rotatey(-270deg);
+            }
+
+            50% {
+                transform: rotatey(-270deg);
+            }
+
+            100% {
+                transform: rotatey(-1170deg);
+            }
+        }
+
+        @keyframes sdF5 {
+            0% {
+                transform: rotatex(0deg);
+            }
+
+            7.5% {
+                transform: rotatex(45deg);
+            }
+
+            25% {
+                transform: rotatex(55deg);
+            }
+
+            32.5% {
+                transform: rotatex(270deg);
+            }
+
+            50% {
+                transform: rotatex(270deg);
+            }
+
+            100% {
+                transform: rotatex(1170deg);
+            }
+        }
+
+        @keyframes sdF6 {
+            0% {
+                transform: rotatex(0deg);
+            }
+
+            7.5% {
+                transform: rotatex(-45deg);
+            }
+
+            25% {
+                transform: rotatex(-55deg);
+            }
+
+            32.5% {
+                transform: rotatex(-270deg);
+            }
+
+            50% {
+                transform: rotatex(-270deg);
+            }
+
+            100% {
+                transform: rotatex(-1170deg);
+            }
+        }
+
+        /*变形代码*/
+
+        /* .zhuandong:checked~.box{
+  transform:perspective(500px) rotatex(1060deg) rotatey(1060deg) rotatez(1060deg);
+  transition:20s;
+} */
+
+        .zhuandong:checked~.button2 {
+            background-color: red;
+        }
+
+        .zhuandong:checked~.box {
+            animation: 10s zhuandong infinite;
+        }
+
+        @keyframes zhuandong {
+            0% {
+                transform: perspective(500px) rotatex(0deg) rotatey(0deg) rotatez(0deg);
+            }
+
+            100% {
+                transform: perspective(500px) rotatex(1060deg) rotatey(1060deg) rotatez(1060deg);
+            }
+        }
+
+        .zhuandong:checked~.box .F2 {
+            transform: rotatey(180deg);
+        }
+
+        .zhuandong:checked~.box .F3 {
+            transform: rotatey(90deg);
+        }
+
+        .zhuandong:checked~.box .F4 {
+            transform: rotatey(-90deg);
+        }
+
+        .zhuandong:checked~.box .F5 {
+            transform: rotateX(90deg);
+        }
+
+        .zhuandong:checked~.box .F6 {
+            transform: rotateX(-90deg);
+        }
+
+        /*转动CODE*/
+    </style>
+    <title>JS Bin</title>
+</head>
+
+<body>
+    <input class="transform" type="radio" name="qwe" id="bianxin">
+    <input class="zhuandong" type="radio" name="qwe" id="asd">
+    <label class="button1" for="bianxin">点击变形</label>
+    <label class="button2" for="asd">点击转动</label>
+    <div class="box">
+        <div class="F1"></div>
+        <div class="F2"></div>
+        <div class="F3"></div>
+        <div class="F4"></div>
+        <div class="F5"></div>
+        <div class="F6"></div>
+    </div>
+</body>
+
+</html>
