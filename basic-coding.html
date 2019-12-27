@@ -14,7 +14,7 @@
   var a = Number(prompt());
   var b = Number(prompt());
   var c = Number(prompt());
-  console.log((a + b) / c);
+  console.log(Math.floor((a + b) / c));
 </script>
 <script type="x" id="ch0103/04">
   var a = Number(prompt());
@@ -32,12 +32,12 @@
   console.log((b / a * 100).toFixed(3) + '%');
 </script>
 <script type="x" id="ch0103/07">
+  var x = +prompt();
   var a = +prompt();
   var b = +prompt();
   var c = +prompt();
   var d = +prompt();
-  var x = +prompt();
-  console.log(a * x * x * x + b * x * x + c * x + d);
+  console.log((a * x * x * x + b * x * x + c * x + d).toFixed(7));
 </script>
 <script type="x" id="ch0103/08">
   console.log(((+prompt() - 32) * 5 / 9).toFixed(5));
@@ -47,17 +47,17 @@
   var PI = 3.14159;
   console.log(( 2 * r).toFixed(4), (2 * PI * r).toFixed(4), (PI * r * r).toFixed(4));
 </script>
-<script type="x" id="ch0103/010">
+<script type="x" id="ch0103/10">
   var r1 = +prompt();
   var r2 = +prompt();
   console.log((1 / ( 1 / r1 + 1 / r2)).toFixed(2));
 </script>
-<script type="x" id="ch0103/011">
+<script type="x" id="ch0103/11">
   var a = +prompt();
   var b = +prompt();
   console.log((a % b).toFixed(4));
 </script>
-<script type="x" id="ch0103/012">
+<script type="x" id="ch0103/12">
   var PI = 3.14;
   var r = +prompt();
   console.log((4 / 3 * PI * r * r * r).toFixed(2));
@@ -66,26 +66,26 @@
   var a = +prompt();
   console.log(String(a % 10) + ((a % 100 - a % 10) / 10) + ((a - (a % 100)) / 100));
 </script>
-<script type="x" id="ch0103/014">
+<script type="x" id="ch0103/14">
   var PI = 3.14;
   var h = +prompt();
   var r = +prompt();
   console.log(Math.ceil(( 20000 / (PI * r * r * h))));
 </script>
-<script type="x" id="ch0103/015">
+<script type="x" id="ch0103/15">
   var n = +prompt();
   var x = +prompt();
   var y = +prompt();
   console.log(n - Math.ceil(y / x));
 </script>
-<script type="x" id="ch0103/016">
+<script type="x" id="ch0103/16">
   var x1 = +prompt();
   var y1 = +prompt();
   var x2 = +prompt();
   var y2 = +prompt();
   console.log(Math.sqrt((Math.pow((x1 - x2), 2) + Math.pow((y1 - y2), 2))).toFixed(3));
 </script>
-<script type="x" id="ch0103/017">
+<script type="x" id="ch0103/17">
   var x1 = +prompt();
   var y1 = +prompt();
   var x2 = +prompt();
@@ -98,18 +98,18 @@
   var s = (l1 + l2 + l3) / 2;
   console.log((Math.sqrt(s * (s - l1) * (s - l2) * (s - l3))).toFixed(2));
 </script>
-<script type="x" id="ch0103/018">
+<script type="x" id="ch0103/18">
   var a1 = +prompt();
   var a2 = +prompt();
   var n = +prompt();
   console.log(a1 + (n - 1) * (a2 - a1));
 </script>
-<script type="x" id="ch0103/019">
+<script type="x" id="ch0103/19">
   var a = +prompt();
   var b = +prompt();
   console.log(a * b);
 </script>
-<script type="x" id="ch0103/020">
+<script type="x" id="ch0103/20">
   var n = +prompt();
   console.log( 2 ** n );
 </script>
