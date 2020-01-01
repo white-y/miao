@@ -411,7 +411,7 @@
     let a = +prompt();
     sum = sum + a;
   }
-  console.log(sum.toFixed(5) + " " + (sum / n).toFixed(5));
+  console.log(sum + " " + (sum / n).toFixed(5));
 </script>
 <script type="x" id="ch0105/05">
   var n = +prompt();
@@ -572,7 +572,7 @@
     a = a / 2;
     sum = sum + a * 2;
   }
-  console.log(sum + " " + a / 2)
+  console.log(sum.toFixed(4) + " " + (a / 2).toFixed(7))
 </script>
 <script type="x" id="ch0105/21">
    var n = +prompt();
@@ -677,7 +677,7 @@
     let a;
     a = Math.floor(n % 10);
     n = n / 10;
-    op += a + " ";
+    i == len ? op += a : op += a + " ";
   }
     console.log(op);
 </script>
@@ -715,7 +715,7 @@
   }
 </script>
 <script type="x" id="ch0105/31">
-  var N = +prompt(), M = +prompt(), count = 0;
+  var N = +prompt(), M = +prompt(), count = 0, op = "";
   for(var i = 1; i <= N; i++){
     for(var k = 1; k <= M; k++){
       if(i % k === 0){
@@ -724,11 +724,12 @@
       }
     }
     if(count % 2 !== 0){
-      console.log(i)
+      i == 1 ? op += i : op += "," + i;
       count = 0;
       continue;
     }
   }
+  console.log(op);
 </script>
 <script type="x" id="ch0105/32">
   var n = +prompt(), x, p1 = 1, q1 = 2, Sn = 0;
@@ -806,11 +807,8 @@
     }
   }
   console.log(N)
-
 </script>
-<script type="x" id="ch0105/38">
-
-</script>
+<script type="x" id="ch0105/38"></script>
 <script type="x" id="ch0105/39">
     var n = +prompt(), sum = 0, sum = 0,single;
     for(var k = 1;k <= n; k++){
