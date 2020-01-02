@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>画图</title>
+    <style>
+      canvas {
+        border: 2px solid #f0f;
+        display: block;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas width="400" height="300"></canvas>
+  </body>
+  <script>
+    var canvas = document.querySelector("canvas");
+    canvas.style.imageRendering = "pixelated";
+    var ctx = canvas.getContext("2d");
+
+    function dot(x, y, color = "black") {
+      ctx.fillStyle = color;
+      ctx.fillRect(x, y, 1, 1);
+    }
+    /**
+   * YOUR TASK
+画图的题：
+画一条实线
+画一条一个实点一个空点的虚线
+画一条两个实点两个空点的虚线
+画一条三个实点两个空点的虚线
+画一条45度的斜线
+画一条跨越画布左上角和右下角的对角线
+画一个空心矩形
+画一个实心矩形
+画一个rgb色彩空间的某一面
+画一个空心的圆
+画一个实心的圆
+画一个大小合适的sin(x)的图像
+   */
+  </script>
+  <script>
+    // YOUR CODE GOES BELOW
+    var x;
+    for (x = 0; x <= 400; x++) {
+      dot(x, 20);
+    }
+  </script>
+  <script>
+    var x;
+    for (x = 0; x <= 400; x = x + 2) {
+      dot(x, 40);
+    }
+  </script>
+  <script>
+    var x;
+    for (x = 0; x <= 400; x = x + 4) {
+      dot(x, 50);
+      dot(x + 1, 50);
+    }
+  </script>
+  <script>
+    var x;
+    for (x = 0; x <= 400; x = x + 5) {
+      dot(x, 60);
+      dot(x + 1, 60);
+      dot(x + 2, 60);
+    }
+  </script>
+  <script>
+    var x;
+    for (x = 0; x <= 400; x++) {
+      let y = x;
+      dot(x, y);
+    }
+  </script>
+  <script>
+    var x;
+    for (x = 0; x <= 400; x++) {
+      let y = (x * 3) / 4;
+      dot(x, y);
+    }
+  </script>
+  <script>
+    var x = (dy = 10),
+      y = (dx = 110),
+      h = 50;
+    for (x; x <= dy + h; x++) {
+      y = dx;
+      dot(x, y);
+      for (y; y <= dx + h; y++) {
+        dot(x, y);
+      }
+    }
+  </script>
+  <script>
+    var x = (dy = 10),
+      y = (dx = 70),
+      h = 30;
+    for (x; x <= dy + h; x++) {
+      dot(x, y);
+      dot(x, y + h);
+    }
+    x = dy;
+    for (y; y <= dx + h; y++) {
+      dot(x, y);
+      dot(x + h, y);
+    }
+  </script>
+  <script>
+    var x = (dy = 10),
+      y = (dx = 170),
+      h = 80;
+    for (x; x <= dy + h; x++) {
+        y = dx;
+        let i = (255 / h) * (x - dy);
+        color = `rgb(255,255,${i})`;
+        dot(x, y, color);
+        for (y; y <= dx + h; y++) {
+          let j = (255 / h) * (y - dx);
+          color = `rgba(255,${j},${i})`;
+          dot(x, y, color);
+        }
+      }
+  </script>
+  <script>
+    var r = 40,
+    a = 50,
+    b = 50,
+    x = a1 = a - r,
+    y = b1 = b - r; 
+    for (x; x <= a1 + 2 * r; x += 0.1){
+      y = b1;
+      for(y; y <= b1 + 2 * r; y += 0.1) {
+        if ((x - a) * (x - a) + (y - b) * (y - b) -  r * r <= 2 
+        && (x - a) * (x - a) + (y - b) * (y - b) - r * r + 2>= 0){
+          dot(x , y);
+        }
+      }
+    }
+  </script>
+    <script>
+      var r = 40,
+        a = 300,
+        b = 220,
+        x = a1 = a - r,
+        y = b1 = b - r;
+      for (x; x <= a1 + 2 * r; x += 0.1) {
+        y = b1;
+        for (y; y <= b1 + 2 * r; y += 0.1) {
+          if ((x - a) * (x - a) + (y - b) * (y - b) - r * r <= 2) {
+            dot(x, y);
+          }
+        }
+      }
+    </script>
+    <script>
+      
+    </script>
+</html>
